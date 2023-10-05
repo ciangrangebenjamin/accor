@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+		<style>
+			iframe{border: 0;}
+			div{position:relative;display: inline-block;margin-left:20px; margin-right:20px;margin-top:20px;  vertical-align:top;}
+			p{position:relative;margin-top:0px;color:#ccc;}
+			a{text-decoration:none;}
+			h2{margin-left:20px;color:#ccc;margin-bottom:0px;}
+		</style>
+		<script type="text/javascript">
+			// {l, h, "nom", "legende","br"}
+			
+			var end1="DEC";
+			var end2="RES";
+
+
+
+			var base="TY23AB038-FIR-PERF-CHR-OCT23";
+
+	
+	
+	
+			var a=[					
+					{l:300,h:600},
+					{l:120,h:600},
+					{l:300,h:250},
+					{l:728,h:90},
+					{l:320,h:100}
+				];		
+	
+
+	
+				
+		</script>
+    </head>
+    <body>
+    </body>
+	<script type="text/javascript">
+			function displayBan(base,a,end){
+				end=="" ? document.body.innerHTML+='<h2>'+base+'</h2>' : document.body.innerHTML+='<h2>'+base+"_"+end+'</h2>';
+				var txt;
+				var base_="";;
+				base==""?base_=="":base_=base+"_";
+				var nomcomplet="";
+				for (var i=0;i<a.length;i++)
+				{
+					end==""?nomcomplet='<div><iframe src='+base_+a[i].l+'x'+a[i].h:nomcomplet='<div><iframe src='+base_+a[i].l+'x'+a[i].h+"_"+end;
+					a[i].nom==null?txt = nomcomplet:txt='<div><iframe src='+base_+a[i].nom;
+					
+					txt +='/index.html width="'+a[i].l+'" height="'+a[i].h+'" ></iframe><a href=javascript:void(0); onclick="replay(this.parentNode)";><p>';
+					a[i].legende==null?txt+=a[i].l+'x'+a[i].h+'</p></a></div>':txt+=a[i].legende+'</p></a></div>';
+					a[i].br!=null?txt+='</br>':txt+="";
+					document.body.innerHTML+=txt;
+				}
+				document.body.innerHTML+="</br></br></br>";
+			}
+			
+			function replay(e){e.innerHTML=e.innerHTML;}
+			
+			
+			displayBan(base,a,end1);
+			displayBan(base,a,end2);
+
+	
+		</script>
+</html>
